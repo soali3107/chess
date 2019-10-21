@@ -5,8 +5,12 @@ class Piece {
         this.position =position;
         this.status = false;
     }
+    validMoves(){
+        //takes out moves  if it moves into check
+    }
 
-    movePiece(startPos, endPos){
+    isMovedIntoCheck(end_pos){
+        //boolean if piece is in  check if in end position
     }
 }
 

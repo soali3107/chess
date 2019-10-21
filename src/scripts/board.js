@@ -9,6 +9,7 @@ import Bishop from './piece/bishop';
 
 import NullPiece from './piece/nullpiece';
 import Pawn from './piece/pawn';
+import Piece from './piece/piece';
 
 
 class Board {
@@ -25,6 +26,7 @@ class Board {
 
         this.populateBoard = this.populateBoard.bind(this);
         this.isEmpty = this.isEmpty.bind(this);
+        this.movePiece  = this.movePiece.bind(this);
         this.position = this.position.bind(this);
         this.populateBoard();
     }
@@ -56,8 +58,13 @@ class Board {
         return this.isValidPosition && this.rows[pos].color ===  'null'
     }
 
-    movePos(startPos, endPos){
-
+    movePiece(turnColor, startPos, endPos){
+        piece = this.rows[startPos];
+        finalPiece = this.rows[endPos];
+        if(piece.color != turnColor && piece.moves.includes(endPos)){
+            this.rows[endPos] = piece;
+            this.rows[startPos] = new NullPiece("null", this, startPos); 
+        }
     }
 
     isValidPosition(pos){
@@ -73,6 +80,10 @@ class Board {
     //Newmethod
     position(pos){
         this.rows[pos]
+    }
+
+    checkMate(){
+        false
     }
 }
 
