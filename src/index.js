@@ -17,7 +17,7 @@ function setUpBoard(){
             img.className = ((i + j) % 2 === 0 ? "black" : "white" );
             img.class = `${i}${j}`;
             
-            // if (i < 2 a)
+            // if ( i < 2 )
             // if (i === 0) {
             //     img.src = '../assets/bb.svg';
             // } else if (i > 6) {
@@ -25,7 +25,7 @@ function setUpBoard(){
             //         case j % 5 === 0:
             //     }
             // }
-            img.src = '../assets/bb.svg';
+            img.src = './assets/bb.svg';
             // img.onclick = "";
             debugger
             chessBoard.appendChild(img);   
