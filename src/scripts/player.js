@@ -5,6 +5,16 @@ class  Player {
         
     }
 
+    move(start, end){
+        let start = false;
+        let end = false;
+        while(!(start && end)){
+            if(start){
+                
+            }
+        }
+    }
+
 }
 
 export default Player;

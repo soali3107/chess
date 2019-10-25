@@ -5,19 +5,22 @@ import Piece from './scripts/piece/piece';
 document.addEventListener("DOMContentLoaded", setUpBoard);
 
 function setUpBoard(){
-    debugger
+    // debugger
     const chessBoard  = document.getElementsByClassName("chess")[0];
-    debugger
+    // debugger
     for(let i = 0; i < 8; i++){
         for(let j = 0; j < 8; j++){
             //create  tile element for 
-            let button = document.createElement("button");   
-            // Create a <button> element
-            // button.innerHTML = "CLICK ME";
-            button.class = ((i + j) % 2 === 0 ? "black" : "white" );
-            button.className = `${i}${j}`;
+            let img = document.createElement("img");   
+            // Create a <img> element
+            // img.innerHTML = "CLICK ME";
+            img.className = ((i + j) % 2 === 0 ? "black" : "white" );
+            img.class = `${i}${j}`;
+            // if (i < 2 a)
+            img.src = '../assets/bb.svg';
+            // img.onclick = "";
             debugger
-            chessBoard.appendChild(button);   
+            chessBoard.appendChild(img);   
         }
         ///<div><img onClick>
     };
