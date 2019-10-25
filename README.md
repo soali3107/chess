@@ -1,6 +1,6 @@
 # Chess
 
-(https://soali3107.github.io/chess/)
+https://soali3107.github.io/chess/
 
 ## Background and Overview
 Chess is an 8 x 8 board game that consists of 16 pieces on both sides. It's a fun game since there are 6 unique pieces each player has with unique rules for each piece. Thus, the likelihood of two games being alike is nil.
