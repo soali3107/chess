@@ -6,10 +6,12 @@ class Bishop extends Piece{
     constructor(color, board, position) {
         super(color, board, position);
         this.status = false;
+        this.symbol = this.symbol.bind(this);
 
     }
     symbol() {
-        return "BISHOP";
+        // return "BISHOP";
+        return `../assets/b${this.symbol[0]}.svg`;
     }
 
     moveDirections() {

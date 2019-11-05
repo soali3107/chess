@@ -1,7 +1,8 @@
 // create index.js in /src directory and import style /src / styles / index.scss
 import './styles/index.scss';
-import Piece from './scripts/piece/piece';
+// import Game from './scripts/board';
 
+// this.game = new Game;
 document.addEventListener("DOMContentLoaded", setUpBoard);
 
 function setUpBoard(){
@@ -15,8 +16,8 @@ function setUpBoard(){
             // Create a <img> element
             // img.innerHTML = "CLICK ME";
             img.className = ((i + j) % 2 === 0 ? "black" : "white" );
-            img.class = `${i}${j}`;
-            
+            img.id = `${i}${j}`;
+            // img.src = game.board.pos([i,j]);
             // if ( i < 2 )
             // if (i === 0) {
             //     img.src = '../assets/bb.svg';
@@ -25,9 +26,9 @@ function setUpBoard(){
             //         case j % 5 === 0:
             //     }
             // }
-            img.src = './assets/bb.svg';
+            // div.img.src = './assets/bb.svg';
             // img.onclick = "";
-            debugger
+            // debugger
             chessBoard.appendChild(img);   
         }
         ///<div><img onClick>

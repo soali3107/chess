@@ -8,7 +8,7 @@ class Rook extends Piece {
 
     }
     symbol() {
-        return "ROOK";
+        return `../assets/r${this.symbol[0]}.svg`;
     }
 
     moveDirections(){

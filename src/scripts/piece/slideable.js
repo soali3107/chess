@@ -17,7 +17,7 @@ export function growingMoves(dx, dy){
     const oneDirectionalMoves = [];
     let currentPosition = this.position;
     currentPosition =  [currentPosition[0] + dx, currentPosition[1] + dy];
-    while(board.isValidPosition(currentPosition)){
+    while( board.isValidPosition(currentPosition) ){
         return oneDirectionalMoves
     }
 }

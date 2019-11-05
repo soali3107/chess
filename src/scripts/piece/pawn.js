@@ -12,19 +12,20 @@ class Pawn extends Piece {
         this.sideSteps = this.sideSteps.bind(this);
     }
     symbol() {
-        return "PAWN";
+        // return "PAWN";
+        return `../assets/p${this.symbol[0]}.svg`;
     }
 
     moveDirections() {
         return this.fowardSteps().concat(this.sideSteps())
     }
-
+    //Assumption that this.position[1] should return the y-coordinate of the 2d array.
     atStart(){
-        return ( this.color === 'White' ? 1 : 6 ) ===  this.position[1]
+        return ( this.color === 'white' ? 1 : 6 ) ===  this.position[1]
     }
 
     fowardDirections(){
-        return this.color === 'White' ? 1 : -1
+        return this.color === 'white' ? 1 : -1
     }
 
     fowardSteps(){
@@ -41,7 +42,7 @@ class Pawn extends Piece {
     }
 
     sideSteps(){
-        let oppositeColor = (this.color === 'White' ?  'Black'  : 'White');
+        let oppositeColor = (this.color === 'white' ?  'Black'  : 'white');
         let steps = [];
         let  moves =  [ [this.position[0] + this.fowardDirections,  this.position[1] + 1], [this.position[0] + this.fowardDirections, this.position[1] - 1]];
         for(let i = 0; i < moves.length; i++){

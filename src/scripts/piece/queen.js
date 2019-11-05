@@ -8,7 +8,7 @@ class Queen extends Piece {
 
     }
     symbol() {
-        return "QUEEN";
+        return `../assets/q${this.symbol[0]}.svg`;
     }
 
     moveDirections() {

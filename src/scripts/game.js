@@ -4,7 +4,7 @@ import Player from './player';
 class Game {
     constructor(){
         this.board = new Board;
-        this.display = new this.display(this.board);
+        // this.display = new this.display(this.board);
         this.players = {
             "white": new Player("white", this.display),
             "black": new Player("black", this.display)

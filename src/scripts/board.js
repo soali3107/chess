@@ -11,6 +11,7 @@ import NullPiece from './piece/nullpiece';
 import Pawn from './piece/pawn';
 import Piece from './piece/piece';
 
+import Display from './display';
 
 class Board {
     constructor(){
@@ -32,7 +33,7 @@ class Board {
     }
 
     populateBoard(){
-        const color =  ["White", "Black"];
+        const color =  ["white", "black"];
         for(let  i  = 0; i < this.rows.length; i++){
             for(let j = 0; j < this.rows[i].length; j++){
                 let position  = [i, j];

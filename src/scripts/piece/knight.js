@@ -7,12 +7,13 @@ class Knight extends Piece {
 
     }
     symbol() {
-        return "KNIGHT";
+        // return "KNIGHT";
+        return `../assets/n${this.symbol[0]}.svg`;
     }
 
     moveDirections() {
-        const moves = [ [1, 2], [2, 1], [1, -2], [2, -1], [-1, 2], [-2, 1], [-1, -2], [-2, -1] ]
-        
+        const moves = [ [1, 2], [2, 1], [1, -2], [2, -1],
+                        [-1, 2], [-2, 1], [-1, -2], [-2, -1] ]
     }
 }
 

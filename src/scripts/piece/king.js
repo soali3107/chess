@@ -7,12 +7,13 @@ class King extends Piece{
 
     }
     symbol() {
-        return "KING";
+        // return "KING";
+        return `../assets/k${this.symbol[0]}.svg`;
     }
 
     moveDirections() {
-        const moves = [[1,0], [1, 1], [0, 1], [-1, 1], [-1, 0], [-1, -1], [0, -1], [1, -1]]
-        
+        const moves = [[1,0], [1, 1], [0, 1], [-1, 1],
+                         [-1, 0], [-1, -1], [0, -1], [1, -1]]
     }
 }
 
