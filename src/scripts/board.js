@@ -51,8 +51,8 @@ class Board {
     }
 
     backRow(index){
-        const backPieces= [Rook, Knight, Bishop, Queen, King];
-        return backPieces[index % 5]
+        const backPieces= [Rook, Knight, Bishop, Queen, King, Bishop, Knight, Rook];
+        return backPieces[index]
     }
 
     isEmpty(pos) {

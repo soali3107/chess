@@ -6,8 +6,11 @@ class NullPiece extends Piece  {
         // this.board = board;
         // this.position = position;
         // this.color = "none";
-        this.symbol = "null";
+        // this.symbol = "null";
         this.moves  = [];
+    }
+    symbol() {
+        return `//:0`;
     }
 };
 

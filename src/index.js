@@ -1,10 +1,12 @@
 // create index.js in /src directory and import style /src / styles / index.scss
 import './styles/index.scss';
 // import Game from './scripts/board';
-
+import Board from './scripts/board';
 // this.game = new Game;
 document.addEventListener("DOMContentLoaded", setUpBoard);
+let board = new Board;
 
+let clickCount = [];
 function setUpBoard(){
     // debugger
     const chessBoard  = document.getElementsByClassName("chess")[0];
@@ -21,6 +23,7 @@ function setUpBoard(){
             // if ( i < 2 )
             // if (i === 0) {
             //     img.src = '../assets/bb.svg';
+            img.src = board.rows[i][j].symbol();
             // } else if (i > 6) {
             //     switch (j) {
             //         case j % 5 === 0:
@@ -29,6 +32,19 @@ function setUpBoard(){
             // div.img.src = './assets/bb.svg';
             // img.onclick = "";
             // debugger
+            img.onclick = function (e) {
+                e.preventDefault
+                const startPos = [i, j];
+                if (clickCount.length === 0){
+                    clickCount.push(startPos)
+                    console.log('click1')
+                }
+                else {
+                    board.movePiece("white", clickCount[0], startPos)
+                    clickCount = [];
+                    console.log('click2')
+                }
+            }
             chessBoard.appendChild(img);   
         }
         ///<div><img onClick>
