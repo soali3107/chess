@@ -12,6 +12,9 @@ class NullPiece extends Piece  {
     symbol() {
         return `//:0`;
     }
+    moveDirections(){
+        return []
+    }
 };
 
 //Singleton: https://www.sitepoint.com/javascript-design-patterns-singleton/

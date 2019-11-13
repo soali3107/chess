@@ -9,7 +9,7 @@ let board = new Board;
 let clickCount = [];
 function setUpBoard(){
     // debugger
-    const chessBoard  = document.getElementsByClassName("chess")[0];
+    const chessBoard = document.getElementsByClassName("chess")[0];
     // debugger
     for(let i = 0; i < 8; i++){
         for(let j = 0; j < 8; j++){

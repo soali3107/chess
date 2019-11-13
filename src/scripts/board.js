@@ -56,13 +56,14 @@ class Board {
     }
 
     isEmpty(pos) {
-        return this.isValidPosition && this.rows[pos].color ===  'null'
+        return this.isValidPosition && this.rows[pos[0]][pos[1]].color ===  'null'
     }
 
     movePiece(turnColor, startPos, endPos){
-        piece = this.rows[startPos];
-        finalPiece = this.rows[endPos];
-        if(piece.color != turnColor && piece.moves.includes(endPos)){
+        let piece = this.rows[startPos[0]][startPos[1]];
+        // let finalPiece = this.rows[endPos];
+        console.log(piece);
+        if(piece.color != turnColor && piece.moveDirections().includes(endPos)){
             this.rows[endPos] = piece;
             this.rows[startPos] = new NullPiece("null", this, startPos); 
         }
