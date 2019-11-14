@@ -8,7 +8,7 @@ class Rook extends Piece {
 
     }
     symbol() {
-        return (this.color === 'white' ? `../assets/rw.svg` : `../assets/rb.svg`);
+        return (this.color === 'white' ? `./assets/rw.svg` : `./assets/rb.svg`);
     }
 
     moveDirections(){

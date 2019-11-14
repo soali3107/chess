@@ -14,7 +14,7 @@ class Pawn extends Piece {
     symbol() {
         // return "PAWN";
         // return `../assets/p${this.symbol[0]}.svg`;
-        return (this.color === 'white' ? `../assets/pw.svg` : `../assets/pb.svg`);
+        return (this.color === 'white' ? `./assets/pw.svg` : `./assets/pb.svg`);
 
     }
 

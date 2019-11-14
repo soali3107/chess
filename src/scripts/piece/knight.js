@@ -9,7 +9,7 @@ class Knight extends Piece {
     symbol() {
         // return "KNIGHT";
         // return `../assets/n${this.symbol[0]}.svg`;
-        return (this.color === 'white' ? `../assets/nw.svg` : `../assets/nb.svg`);
+        return (this.color === 'white' ? `./assets/nw.svg` : `./assets/nb.svg`);
     }
 
     moveDirections() {

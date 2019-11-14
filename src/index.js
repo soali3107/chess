@@ -45,7 +45,7 @@ function setUpBoard(){
                     console.log("start");
                     console.log(clickCount[0]);
                     console.log(startPos);
-                    board.movePiece("black", clickCount[0], startPos)
+                    board.movePiece(clickCount[0], startPos)
                     clickCount = [];
                     console.log('click2')
                     console.log(clickCount);

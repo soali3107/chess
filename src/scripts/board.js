@@ -30,6 +30,8 @@ class Board {
         this.movePiece  = this.movePiece.bind(this);
         this.position = this.position.bind(this);
         this.populateBoard();
+
+        this.currentPlayer = "white";
     }
 
     populateBoard(){
@@ -59,20 +61,25 @@ class Board {
         return this.isValidPosition && this.rows[pos[0]][pos[1]].color ===  'null'
     }
 
-    movePiece(turnColor, startPos, endPos){
+    movePiece(startPos, endPos){
         console.log("movePiece");
-        console.log(turnColor);
-        console.log(startPos);
-        console.log(endPos);
+        // console.log(turnColor);
+        // console.log(startPos);
+        // console.log(endPos);
         let piece = this.rows[startPos[0]][startPos[1]];
         // let finalPiece = this.rows[endPos];
-        console.log(this);
-        console.log(this.rows[startPos[0]][startPos[1]]);
-        console.log(this.rows[endPos[0]][endPos[1]]);
-        // if(piece.color != turnColor && piece.moveDirections().includes(endPos)){
+        // console.log(this);
+        // console.log(this.rows[startPos[0]][startPos[1]]);
+        // console.log(this.rows[endPos[0]][endPos[1]]);
+        console.log(piece);
+        console.log(piece.color);
+        console.log(this.currentPlayer);
+        console.log(piece.moveDirections());
+        // if(piece.color === this.currentPlayer && (piece.moveDirections()).includes(endPos)){
             console.log("HELOOOOOO");
             this.rows[endPos[0]][endPos[1]] = piece;
             this.rows[startPos[0]][startPos[1]] = new NullPiece("null", this, startPos); 
+            this.currentPlayer = (this.currentPlayer === "white" ? "black" : "white");
         // }
     }
 

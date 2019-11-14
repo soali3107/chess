@@ -9,7 +9,7 @@ class King extends Piece{
     symbol() {
         // return "KING";
         // return `../assets/k${this.symbol[0]}.svg`;
-        return (this.color === 'white' ? `../assets/kw.svg` : `../assets/kb.svg`);
+        return (this.color === 'white' ? `./assets/kw.svg` : `./assets/kb.svg`);
     }
 
     moveDirections() {

@@ -12,7 +12,7 @@ class Bishop extends Piece{
     symbol() {
         // return "BISHOP";
         // return `../assets/b${this.symbol[0]}.svg`;
-        return (this.color === 'white' ? `../assets/bw.svg` : `../assets/bb.svg`);
+        return (this.color === 'white' ? `./assets/bw.svg` : `./assets/bb.svg`);
 
     }
 

@@ -9,7 +9,7 @@ class Queen extends Piece {
     }
     symbol() {
         // return `../assets/q${this.symbol[0]}.svg`;
-        return (this.color === 'white' ? `../assets/qw.svg` : `../assets/qb.svg`);
+        return (this.color === 'white' ? `./assets/qw.svg` : `./assets/qb.svg`);
     }
 
     moveDirections() {
