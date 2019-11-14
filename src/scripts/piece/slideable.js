@@ -5,17 +5,22 @@ export const DiagonalDirections = [[1, 1], [1, -1], [-1, -1], [-1, 1]];
 Object.freeze(AxialDirections);
 Object.freeze(DiagonalDirections);
 
-export function moves(directionalArray){
+export function moves(directionalArray, position, board){
     const allMoves =[];
+    console.log("moves2");
+    console.log(board);
     for(let  i = 0; i < directionalArray.length; i++){
-        allMoves.push(growingMoves(directionalArray[0], directionalArray[1])) 
+        allMoves.push(growingMoves(directionalArray[0], directionalArray[1], position, board)) 
     }
     return allMoves;
 }
 
-export function growingMoves(dx, dy){
+export function growingMoves(dx, dy, position, board){
     const oneDirectionalMoves = [];
-    let currentPosition = this.position;
+    console.log("Grow");
+    // console.log(this.position);
+    let currentPosition = position;
+    console.log(board);
     currentPosition =  [currentPosition[0] + dx, currentPosition[1] + dy];
     while( board.isValidPosition(currentPosition) ){
         return oneDirectionalMoves

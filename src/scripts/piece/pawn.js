@@ -19,6 +19,8 @@ class Pawn extends Piece {
     }
 
     moveDirections() {
+        console.log("moveDPawn");
+        // console.log()
         return this.fowardSteps().concat(this.sideSteps())
     }
     //Assumption that this.position[1] should return the y-coordinate of the 2d array.
@@ -31,7 +33,7 @@ class Pawn extends Piece {
     }
 
     fowardSteps(){
-        let oneStep = [this.position[0] + this.fowardDirections(), this.position[1]];
+        let oneStep = [this.position[0], this.position[1] + this.fowardDirections()];
         let twoStep = [this.position[0] + 2 * this.fowardDirections(), this.position[1]];
         let steps = [];
         if(this.board.isValidPosition(oneStep) && this.board.isEmpty(oneStep)){

@@ -4,7 +4,7 @@ import './styles/index.scss';
 import Board from './scripts/board';
 // this.game = new Game;
 document.addEventListener("DOMContentLoaded", setUpBoard);
-let board = new Board;
+let board2 = new Board;
 
 let clickCount = [];
 function setUpBoard(){
@@ -23,7 +23,7 @@ function setUpBoard(){
             // if ( i < 2 )
             // if (i === 0) {
             //     img.src = '../assets/bb.svg';
-            img.src = board.rows[i][j].symbol();
+            img.src = board2.rows[i][j].symbol();
             // } else if (i > 6) {
             //     switch (j) {
             //         case j % 5 === 0:
@@ -45,7 +45,7 @@ function setUpBoard(){
                     console.log("start");
                     console.log(clickCount[0]);
                     console.log(startPos);
-                    board.movePiece(clickCount[0], startPos)
+                    board2.movePiece(clickCount[0], startPos)
                     clickCount = [];
                     console.log('click2')
                     console.log(clickCount);

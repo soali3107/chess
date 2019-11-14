@@ -7,6 +7,9 @@ class Bishop extends Piece{
         super(color, board, position);
         this.status = false;
         this.symbol = this.symbol.bind(this);
+        this.moveDirections= this.moveDirections.bind(this);
+        this.moves = moves.bind(this);
+        // this.DiagonalDirections = DiagonalDirections.bind(this);
 
     }
     symbol() {
@@ -17,7 +20,9 @@ class Bishop extends Piece{
     }
 
     moveDirections() {
-        return moves(DiagonalDirections)
+        console.log("moveD")
+        console.log(this.board);
+        return moves(DiagonalDirections, this.position, this.board)
     }
 }
 

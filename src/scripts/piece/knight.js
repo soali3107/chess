@@ -4,6 +4,7 @@ class Knight extends Piece {
     constructor(color, board, position) {
         super(color, board, position);
         this.status = false;
+        this.addition = this.addition.bind(this);
 
     }
     symbol() {
@@ -15,6 +16,11 @@ class Knight extends Piece {
     moveDirections() {
         const moves = [ [1, 2], [2, 1], [1, -2], [2, -1],
                         [-1, 2], [-2, 1], [-1, -2], [-2, -1] ]
+        return moves.map(addition)
+    }
+
+    addition(arr){
+        return [[this.position[0] + arr[0]], [this.position[1] + arr[1]] ]
     }
 }
 
