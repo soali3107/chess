@@ -16,7 +16,7 @@ class Knight extends Piece {
     moveDirections() {
         const moves = [ [1, 2], [2, 1], [1, -2], [2, -1],
                         [-1, 2], [-2, 1], [-1, -2], [-2, -1] ]
-        return moves.map(addition)
+        // return moves.map(addition)
     }
 
     addition(arr){

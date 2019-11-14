@@ -12,7 +12,7 @@ class Rook extends Piece {
     }
 
     moveDirections(){
-        return moves(AxialDirections)
+        // return moves(AxialDirections)
     }
 }
 

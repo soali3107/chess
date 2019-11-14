@@ -13,7 +13,7 @@ class Queen extends Piece {
     }
 
     moveDirections() {
-        return moves(AxialDirections.concat(DiagonalDirections))
+        // return moves(AxialDirections.concat(DiagonalDirections))
     }  
 }
 
