@@ -9,7 +9,7 @@ let board = new Board;
 let clickCount = [];
 function setUpBoard(){
     // debugger
-    const chessBoard = document.getElementsByClassName("chess")[0];
+    let chessBoard = document.getElementsByClassName("chess")[0];
     // debugger
     for(let i = 0; i < 8; i++){
         for(let j = 0; j < 8; j++){
@@ -32,20 +32,29 @@ function setUpBoard(){
             // div.img.src = './assets/bb.svg';
             // img.onclick = "";
             // debugger
+            chessBoard.appendChild(img);
             img.onclick = function (e) {
-                e.preventDefault
+                e.preventDefault;
                 const startPos = [i, j];
                 if (clickCount.length === 0){
-                    clickCount.push(startPos)
-                    console.log('click1')
+                    clickCount.push(startPos);
+                    console.log('click1');
+                    console.log(clickCount);
                 }
                 else {
-                    board.movePiece("white", clickCount[0], startPos)
+                    console.log("start");
+                    console.log(clickCount[0]);
+                    console.log(startPos);
+                    board.movePiece("black", clickCount[0], startPos)
                     clickCount = [];
                     console.log('click2')
+                    console.log(clickCount);
+                    // chessBoard.remove();
+                    chessBoard.innerHTML = "";
+                    setUpBoard();
                 }
             }
-            chessBoard.appendChild(img);   
+               
         }
         ///<div><img onClick>
     };

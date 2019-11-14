@@ -60,13 +60,20 @@ class Board {
     }
 
     movePiece(turnColor, startPos, endPos){
+        console.log("movePiece");
+        console.log(turnColor);
+        console.log(startPos);
+        console.log(endPos);
         let piece = this.rows[startPos[0]][startPos[1]];
         // let finalPiece = this.rows[endPos];
-        console.log(piece);
-        if(piece.color != turnColor && piece.moveDirections().includes(endPos)){
-            this.rows[endPos] = piece;
-            this.rows[startPos] = new NullPiece("null", this, startPos); 
-        }
+        console.log(this);
+        console.log(this.rows[startPos[0]][startPos[1]]);
+        console.log(this.rows[endPos[0]][endPos[1]]);
+        // if(piece.color != turnColor && piece.moveDirections().includes(endPos)){
+            console.log("HELOOOOOO");
+            this.rows[endPos[0]][endPos[1]] = piece;
+            this.rows[startPos[0]][startPos[1]] = new NullPiece("null", this, startPos); 
+        // }
     }
 
     isValidPosition(pos){
