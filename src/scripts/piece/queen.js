@@ -6,6 +6,8 @@ class Queen extends Piece {
         super(color, board, position);
         this.status = false;
 
+        this.moveDirections = this.moveDirections.bind(this);
+
     }
     symbol() {
         // return `../assets/q${this.symbol[0]}.svg`;
@@ -13,7 +15,8 @@ class Queen extends Piece {
     }
 
     moveDirections() {
-        // return moves(AxialDirections.concat(DiagonalDirections))
+        console.log("Axial + Diagonal", AxialDirections.concat(DiagonalDirections)[0] );
+        return moves(AxialDirections.concat(DiagonalDirections), this.position, this.board)
     }  
 }
 

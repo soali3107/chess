@@ -72,12 +72,12 @@ class Board {
         // console.log(this);
         // console.log(this.rows[startPos[0]][startPos[1]]);
         // console.log(this.rows[endPos[0]][endPos[1]]);
-        console.log(piece);
-        console.log(piece.color);
-        console.log(this.currentPlayer);
-        console.log(piece.moveDirections());
-        console.log(endPos);
-        console.log(this.includesPosition(piece.moveDirections, endPos));
+        // console.log(piece);
+        // console.log(piece.color);
+        // console.log(this.currentPlayer);
+        // console.log(piece.moveDirections());
+        // console.log(endPos);
+        // console.log(this.includesPosition(piece.moveDirections, endPos));
         if (piece.color === this.currentPlayer && (this.includesPosition(piece.moveDirections(), endPos))){
             console.log("HELOOOOOO");
             this.rows[endPos[0]][endPos[1]] = piece;
@@ -85,7 +85,7 @@ class Board {
             this.changeCurrentPlayer();
             // this.piece.movePosition(endPos);
             this.rows[endPos[0]][endPos[1]].movePosition(endPos);
-            console.log(this.currentPlayer);
+            // console.log(this.currentPlayer);
         }
     }
 
@@ -105,9 +105,9 @@ class Board {
     }
 
     includesPosition(arr1, arr2) {
-        console.log("includesPosition");
-        console.log(arr1);
-        console.log(arr2);
+        // console.log("includesPosition");
+        // console.log(arr1);
+        // console.log(arr2);
         for (let i = 0; i < arr1.length; i++) {
             console.log(arr1[i]);
             if (this.areEqualArrays(arr1[i], arr2)) {
