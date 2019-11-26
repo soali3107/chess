@@ -4,7 +4,14 @@ class Piece {
         this.board = board;
         this.position = position;
         this.status = false;
+
+        this.movePosition = this.movePosition.bind(this);
     }
+
+    movePosition(pos){
+        this.position = [pos[0], pos[1]];
+    }
+
     validMoves(){
         //takes out moves  if it moves into check
     }

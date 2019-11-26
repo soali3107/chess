@@ -10,7 +10,7 @@ class NullPiece extends Piece  {
         this.moves  = [];
     }
     symbol() {
-        return `//:0`;
+        return `./assets/empty.png`;
     }
     moveDirections(){
         return []

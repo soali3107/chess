@@ -16,6 +16,7 @@ import Display from './display';
 class Board {
     constructor(){
         this.rows = [];
+        this.currentPlayer = "white";
         // this.noPiece = new NullPiece("null", this); 
         for (let i = 0; i < 8; i++){
             this.rows[i] = [];
@@ -29,13 +30,13 @@ class Board {
         this.isEmpty = this.isEmpty.bind(this);
         this.movePiece  = this.movePiece.bind(this);
         this.position = this.position.bind(this);
+        this.includesPosition = this.includesPosition.bind(this);
+        this.changeCurrentPlayer = this.changeCurrentPlayer.bind(this);
         this.populateBoard();
-
-        this.currentPlayer = "white";
     }
 
     populateBoard(){
-        const color =  ["white", "black"];
+        const color =  ["black", "white"];
         for(let  i  = 0; i < this.rows.length; i++){
             for(let j = 0; j < this.rows[i].length; j++){
                 let position  = [i, j];
@@ -61,7 +62,7 @@ class Board {
         return this.isValidPosition && this.rows[pos[0]][pos[1]].color ===  'null'
     }
 
-    movePiece(startPos, endPos){
+    movePiece(startPos, endPos = []){
         console.log("movePiece");
         // console.log(turnColor);
         // console.log(startPos);
@@ -75,12 +76,17 @@ class Board {
         console.log(piece.color);
         console.log(this.currentPlayer);
         console.log(piece.moveDirections());
-        // if(piece.color === this.currentPlayer && (piece.moveDirections()).includes(endPos)){
+        console.log(endPos);
+        console.log(this.includesPosition(piece.moveDirections, endPos));
+        if (piece.color === this.currentPlayer && (this.includesPosition(piece.moveDirections(), endPos))){
             console.log("HELOOOOOO");
             this.rows[endPos[0]][endPos[1]] = piece;
             this.rows[startPos[0]][startPos[1]] = new NullPiece("null", this, startPos); 
-            this.currentPlayer = (this.currentPlayer === "white" ? "black" : "white");
-        // }
+            this.changeCurrentPlayer();
+            // this.piece.movePosition(endPos);
+            this.rows[endPos[0]][endPos[1]].movePosition(endPos);
+            console.log(this.currentPlayer);
+        }
     }
 
     isValidPosition(pos){
@@ -96,6 +102,38 @@ class Board {
     //Newmethod
     position(pos){
         this.rows[pos]
+    }
+
+    includesPosition(arr1, arr2) {
+        console.log("includesPosition");
+        console.log(arr1);
+        console.log(arr2);
+        for (let i = 0; i < arr1.length; i++) {
+            console.log(arr1[i]);
+            if (this.areEqualArrays(arr1[i], arr2)) {
+                return true
+            }
+        }
+        return false;
+    }
+
+    areEqualArrays(arr1, arr2) {
+        let  count = arr2.length;
+        for (let i = 0; i < arr1.length; i++) {
+            if (arr1[i] == arr2[i]) {
+                count -= 1;
+            }
+        }
+        if (count === 0) {
+            return true
+        }
+        else {
+            return false
+        }
+    }
+
+    changeCurrentPlayer(){
+        this.currentPlayer = (this.currentPlayer === "white" ? "black" : "white")
     }
 
     checkMate(){

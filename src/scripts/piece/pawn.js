@@ -19,17 +19,19 @@ class Pawn extends Piece {
     }
 
     moveDirections() {
-        console.log("moveDPawn");
-        // console.log()
-        return this.fowardSteps().concat(this.sideSteps())
+        console.log("movedPawn");
+        console.log(this.fowardDirections())
+        return [this.fowardDirections()]
     }
     //Assumption that this.position[1] should return the y-coordinate of the 2d array.
     atStart(){
         return ( this.color === 'white' ? 1 : 6 ) ===  this.position[1]
     }
 
+
     fowardDirections(){
-        return this.color === 'white' ? 1 : -1
+        let direction = this.color === 'white' ? -1 : 1;
+        return [direction + this.position[0], this.position[1]]
     }
 
     fowardSteps(){
@@ -44,6 +46,7 @@ class Pawn extends Piece {
         }
         return steps
     }
+
 
     sideSteps(){
         let oppositeColor = (this.color === 'white' ?  'Black'  : 'white');
