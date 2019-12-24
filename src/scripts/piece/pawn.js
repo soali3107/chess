@@ -19,8 +19,8 @@ class Pawn extends Piece {
     }
 
     moveDirections() {
-        console.log("movedPawn");
-        console.log(this.fowardDirections())
+        // console.log("movedPawn");
+        // console.log(this.fowardDirections())
         return [this.fowardDirections()]
     }
     //Assumption that this.position[1] should return the y-coordinate of the 2d array.

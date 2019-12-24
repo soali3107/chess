@@ -38,8 +38,8 @@ function setUpBoard(){
                 const startPos = [i, j];
                 if (clickCount.length === 0){
                     clickCount.push(startPos);
-                    console.log('click1');
-                    console.log(clickCount);
+                    // console.log('click1');
+                    // console.log(clickCount);
                 }
                 else {
                     console.log("start");
@@ -47,8 +47,8 @@ function setUpBoard(){
                     console.log(startPos);
                     board2.movePiece(clickCount[0], startPos)
                     clickCount = [];
-                    console.log('click2')
-                    console.log(clickCount);
+                    // console.log('click2')
+                    // console.log(clickCount);
                     // chessBoard.remove();
                     chessBoard.innerHTML = "";
                     setUpBoard();

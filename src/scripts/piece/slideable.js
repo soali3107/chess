@@ -7,15 +7,17 @@ Object.freeze(DiagonalDirections);
 
 export function moves(directionalArray, position, board){
     let allMoves = [];
-    console.log("moves2");
-    console.log(allMoves);
-    console.log(position);
+    // debugger;
+    // console.log("moves2");
+    // console.log(allMoves);
+    // console.log(position);
     // console.log(board);
     for(let  i = 0; i < directionalArray.length; i++){
-        console.log("Axial Direction: ", directionalArray[i]);
+        // debugger;
+        // console.log("Axial Direction: ", directionalArray[i]);
         allMoves = combine(allMoves, growingMoves(directionalArray[i][0], directionalArray[i][1], position, board)); 
-        console.log("newMoves");
-        console.log(allMoves);
+        // console.log("newMoves");
+        // console.log(allMoves);
     }
     return allMoves;
 }
@@ -24,15 +26,26 @@ export function growingMoves(dx, dy, position, board){
     const oneDirectionalMoves = [];
     console.log("Grow");
     // console.log(this.position);
+    let takingPiece = false;
     let currentPosition = position;
     // console.log(board);
-    currentPosition =  [currentPosition[0] + dy, currentPosition[1] + dx];
-    let count = 0;
-    while( board.isValidPosition(currentPosition) && count < 10){
+    currentPosition =  [currentPosition[0] + dx, currentPosition[1] + dy];
+    // let count = 0;
+    // debugger;
+    while( board.isValidPosition(currentPosition)){
     // while (false){
-        console.log(count += 1);
+        // console.log(count += 1);
+        // debugger;
+        if (board.rows[currentPosition[0]][currentPosition[1]].color === "white" || board.rows[currentPosition[0]][currentPosition[1]].color === "black") {
+            takingPiece = true;
+        }
         oneDirectionalMoves.push(currentPosition);
         currentPosition = [currentPosition[0] + dx, currentPosition[1] + dy];
+        if (takingPiece) {
+            break;
+        }
+        // debugger;
+       
     }
     return oneDirectionalMoves
 }

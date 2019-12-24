@@ -29,6 +29,7 @@ class Board {
         this.populateBoard = this.populateBoard.bind(this);
         this.isEmpty = this.isEmpty.bind(this);
         this.movePiece  = this.movePiece.bind(this);
+        this.isValidPosition =this.isValidPosition.bind(this);
         this.position = this.position.bind(this);
         this.includesPosition = this.includesPosition.bind(this);
         this.changeCurrentPlayer = this.changeCurrentPlayer.bind(this);
@@ -79,7 +80,7 @@ class Board {
         // console.log(endPos);
         // console.log(this.includesPosition(piece.moveDirections, endPos));
         if (piece.color === this.currentPlayer && (this.includesPosition(piece.moveDirections(), endPos))){
-            console.log("HELOOOOOO");
+            // console.log("HELOOOOOO");
             this.rows[endPos[0]][endPos[1]] = piece;
             this.rows[startPos[0]][startPos[1]] = new NullPiece("null", this, startPos); 
             this.changeCurrentPlayer();
@@ -92,11 +93,13 @@ class Board {
     isValidPosition(pos){
         let bool = true
         for(let i = 0; i < pos.length ; i++){
-            if (pos[i] <  0 ||   pos[i] >  7){
+            // debugger
+            if (pos[i] <  0 ||   pos[i] >  7 ){
                 bool = false;
             }
         }
-        return  bool
+        // debugger
+        return bool && this.rows[pos[0]][pos[1]].color !== this.currentPlayer
     }
 
     //Newmethod
