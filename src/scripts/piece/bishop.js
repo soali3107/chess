@@ -20,8 +20,6 @@ class Bishop extends Piece{
     }
 
     moveDirections() {
-        console.log("moveD")
-        console.log(this.board);
         return moves(DiagonalDirections, this.position, this.board)
     }
 }

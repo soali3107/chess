@@ -15,7 +15,7 @@ class Queen extends Piece {
     }
 
     moveDirections() {
-        console.log("Axial + Diagonal", AxialDirections.concat(DiagonalDirections)[0] );
+        // console.log("Axial + Diagonal", AxialDirections.concat(DiagonalDirections)[0] );
         return moves(AxialDirections.concat(DiagonalDirections), this.position, this.board)
     }  
 }
