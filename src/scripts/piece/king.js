@@ -1,10 +1,11 @@
 import Piece from './piece';
+import { allMoves } from './stepable';
 
 class King extends Piece{
     constructor(color, board, position) {
         super(color, board, position);
         this.status = true;
-
+        this.moveDirections = this.moveDirections.bind(this);
     }
     symbol() {
         // return "KING";
@@ -14,7 +15,8 @@ class King extends Piece{
 
     moveDirections() {
         const moves = [[1,0], [1, 1], [0, 1], [-1, 1],
-                         [-1, 0], [-1, -1], [0, -1], [1, -1]]
+                         [-1, 0], [-1, -1], [0, -1], [1, -1]];
+        return allMoves(moves, this.position, this.board);
     }
 }
 
