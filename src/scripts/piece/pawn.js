@@ -92,9 +92,17 @@ class Pawn extends Piece {
         let oppositeColor = (this.color === 'white' ?  'black'  : 'white');
         let forward = [this.direction() + this.position[0], this.position[1]];
         let steps = [];
-
-        let  moves =  [[ forward[0],  forward[1] + 1], [forward[0] , forward[1] - 1]];
-        debugger
+        let moves = [];
+        let left = forward[1] - 1;
+        let right = forward[1] + 1;
+        if (left >= 0 && left < 8){
+            moves.push([forward[0], left]);
+        }
+        if (right >= 0 && right < 8){
+            moves.push([forward[0], right]);
+        }
+        // let  moves =  [, [forward[0] , forward[1] - 1]];
+        // debugger
         for(let i = 0; i < moves.length; i++){
             let coord = moves[i];
             if(this.board.rows[coord[0]][coord[1]].color === oppositeColor){
