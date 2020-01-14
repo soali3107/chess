@@ -2,6 +2,8 @@
 import './styles/index.scss';
 // import Game from './scripts/board';
 import Board from './scripts/board';
+import Queen from './scripts/piece/Queen';
+import Pawn from './scripts/piece/pawn';
 // this.game = new Game;
 document.addEventListener("DOMContentLoaded", setUpBoard);
 let board2 = new Board;
@@ -46,6 +48,12 @@ function setUpBoard(){
                     console.log(clickCount[0]);
                     console.log(startPos);
                     board2.movePiece(clickCount[0], startPos)
+                    let currentPiece = board2.rows[startPos[0]][startPos[1]];
+                    debugger;
+                    if (currentPiece.className = "Pawn" && (startPos[0] === 0 || startPos[0] === 7)){
+                        // board2.rows[startPos[0]][startPos[1]]  === new Queen;
+                        currentPiece = board2.promotion(startPos, Queen);
+                    }
                     clickCount = [];
                     // console.log('click2')
                     // console.log(clickCount);

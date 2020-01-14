@@ -33,6 +33,7 @@ class Board {
         this.position = this.position.bind(this);
         this.includesPosition = this.includesPosition.bind(this);
         this.changeCurrentPlayer = this.changeCurrentPlayer.bind(this);
+        this.promotion = this.promotion.bind(this);
         this.populateBoard();
     }
 
@@ -64,7 +65,7 @@ class Board {
     }
 
     movePiece(startPos, endPos = []){
-        console.log("movePiece");
+        // console.log("movePiece");
         // console.log(turnColor);
         // console.log(startPos);
         // console.log(endPos);
@@ -102,6 +103,11 @@ class Board {
         return bool && this.rows[pos[0]][pos[1]].color !== this.currentPlayer
     }
 
+    promotion(pos, newPiece){
+        debugger
+        let oldPiece = this.rows[pos[0][pos[1]]];
+        this.rows[pos[0]][pos[1]] = new newPiece (oldPiece.color, this, oldPiece.position);
+    }
     //Newmethod
     position(pos){
         this.rows[pos]
@@ -112,7 +118,7 @@ class Board {
         // console.log(arr1);
         // console.log(arr2);
         for (let i = 0; i < arr1.length; i++) {
-            console.log(arr1[i]);
+            // console.log(arr1[i]);
             if (this.areEqualArrays(arr1[i], arr2)) {
                 return true
             }

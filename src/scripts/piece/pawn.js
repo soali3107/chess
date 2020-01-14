@@ -65,7 +65,14 @@ class Pawn extends Piece {
 
     // Consists of 0-1 Steps Forward
     forwardDirections(){
-        let forward = [this.direction() + this.position[0], this.position[1]];
+        let front = this.direction()  + this.position[0];
+        let forward =  [];
+        if (front  >= 0 && front  < 8){
+            forward = [this.direction() + this.position[0], this.position[1]];
+        }
+        else {
+            return [];
+        }
         if (this.board.rows[forward[0]][forward[1]].color === 'null'){
             return forward;
         }
@@ -105,7 +112,7 @@ class Pawn extends Piece {
         // debugger
         for(let i = 0; i < moves.length; i++){
             let coord = moves[i];
-            if(this.board.rows[coord[0]][coord[1]].color === oppositeColor){
+            if(this.board.isValidPosition(coord) && this.board.rows[coord[0]][coord[1]].color === oppositeColor){
                 steps.push(coord)
             }
         }
