@@ -72,7 +72,7 @@ class Board {
         let piece = this.rows[startPos[0]][startPos[1]];
         // let finalPiece = this.rows[endPos];
         // console.log(this);
-        // console.log(this.rows[startPos[0]][startPos[1]]);
+        // console.log(this.rows[startPos[0]][s tartPos[1]]);
         // console.log(this.rows[endPos[0]][endPos[1]]);
         // console.log(piece);
         // console.log(piece.color);
@@ -104,8 +104,8 @@ class Board {
     }
 
     promotion(pos, newPiece){
-        debugger
-        let oldPiece = this.rows[pos[0][pos[1]]];
+        let oldPiece = this.rows[pos[0]][pos[1]];
+        debugger;
         this.rows[pos[0]][pos[1]] = new newPiece (oldPiece.color, this, oldPiece.position);
     }
     //Newmethod
