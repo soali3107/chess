@@ -112,8 +112,13 @@ class Pawn extends Piece {
         // debugger
         for(let i = 0; i < moves.length; i++){
             let coord = moves[i];
-            if(this.board.isValidPosition(coord) && this.board.rows[coord[0]][coord[1]].color === oppositeColor){
-                steps.push(coord)
+            // if(this.board.isValidPosition(coord) && this.board.rows[coord[0]][coord[1]].color === oppositeColor){
+            //     steps.push(coord)
+            // }
+            if (this.board.isValidPosition(coord)) {
+                if (this.board.rows[coord[0]][coord[1]].color === oppositeColor){
+                    steps.push(coord)
+            }
             }
         }
         return steps
