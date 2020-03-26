@@ -85,9 +85,10 @@ class Pawn extends Piece {
         let oneStep = [this.position[0], this.position[1] + this.forwardDirections()];
         let twoStep = [this.position[0] + 2 * this.forwardDirections(), this.position[1]];
         let steps = [];
-        if(this.board.isValidPosition(oneStep) && this.board.isEmpty(oneStep)){
+        //old isOnBoard
+        if(this.board.isEmpty(oneStep) && this.board.isEmpty(oneStep)){
             steps.push(oneStep)
-            if(this.board.isValidPosition(twoStep) && this.board.isEmpty(twoStep) && this.atStart()){
+            if(this.board.isEmpty(twoStep) && this.board.isEmpty(twoStep) && this.atStart()){
                 steps.push(twoStep)
             }
         }
@@ -112,18 +113,15 @@ class Pawn extends Piece {
         // debugger
         for(let i = 0; i < moves.length; i++){
             let coord = moves[i];
-            // if(this.board.isValidPosition(coord) && this.board.rows[coord[0]][coord[1]].color === oppositeColor){
-            //     steps.push(coord)
-            // }
-            if (this.board.isValidPosition(coord)) {
+            //old is onBoard
+            if (this.board.isOnBoard(coord)) {
                 if (this.board.rows[coord[0]][coord[1]].color === oppositeColor){
                     steps.push(coord)
-            }
+                }
             }
         }
         return steps
     }
-
 
 }
 

@@ -24,7 +24,7 @@ export function moves(directionalArray, position, board){
 
 export function growingMoves(dx, dy, position, board){
     const oneDirectionalMoves = [];
-    console.log("Grow");
+    // console.log("Grow");
     // console.log(this.position);
     let takingPiece = false;
     let currentPosition = position;
@@ -32,7 +32,7 @@ export function growingMoves(dx, dy, position, board){
     currentPosition =  [currentPosition[0] + dx, currentPosition[1] + dy];
     // let count = 0;
     // debugger;
-    while( board.isValidPosition(currentPosition)){
+    while( board.isValidPosition(currentPosition, board.rows[position[0]][position[1]].color)){
     // while (false){
         // console.log(count += 1);
         // debugger;

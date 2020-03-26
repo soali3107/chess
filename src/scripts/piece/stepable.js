@@ -5,7 +5,7 @@ export function allMoves(moves, position, board){
     for(let i = 0; i < moves.length; i++){
         let potentialMoves = moves[i];
         let newPosition = [position[0] + potentialMoves[0], position[1] + potentialMoves[1] ]
-        if(board.isValidPosition(newPosition)){
+        if (board.isValidPosition(newPosition, board.rows[position[0]][position[1]].color)){
             possibleMoves.push(newPosition)
         }
     }

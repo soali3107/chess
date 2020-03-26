@@ -63,7 +63,8 @@ class Board {
     }
 
     isEmpty(pos) {
-        return this.isValidPosition && this.rows[pos[0]][pos[1]].color ===  'null'
+        // old isValidPosition
+        return this.isOnBoard() && this.rows[pos[0]][pos[1]].color ===  'null'
     }
 
     movePiece(startPos, endPos = []){
@@ -82,7 +83,6 @@ class Board {
         // console.log(piece.moveDirections());
         // console.log(endPos);
         // console.log(this.includesPosition(piece.moveDirections, endPos));
-        console.log(this.check('black'))
         if (piece.color === this.currentPlayer && (this.includesPosition(piece.moveDirections(), endPos))){
             // console.log("HELOOOOOO");
             this.rows[endPos[0]][endPos[1]] = piece;
@@ -92,22 +92,24 @@ class Board {
             this.rows[endPos[0]][endPos[1]].movePosition(endPos);
             // console.log(this.currentPlayer);
         }
+        console.log(this.check('black'))
+        // debugger
     }
 
-    findKing(color){
-        const king = (color === 'white' ? `./assets/kw.svg` : `./assets/kb.svg`)
+    findKing(inputColor){
+        const king = (inputColor === 'white' ? `./assets/kw.svg` : `./assets/kb.svg`)
         for(let i = 0; i < 8; i++){
             for(let j = 0; j < 8; j++){
-                if (this.rows[i][j].symbol() == king && this.rows[i][j].color == color ){
+                if (this.rows[i][j].symbol() == king && this.rows[i][j].color == inputColor ){
                     return [i, j]
                 }
             }
         }
     }
 
-    check(color){
-        const kingPosition = this.findKing(color)
-        const oppColor = color == 'white' ? 'black' : 'white'
+    check(inputColor){
+        const kingPosition = this.findKing(inputColor)
+        const oppColor = (inputColor == 'white' ? 'black' : 'white')
         for(let i = 0; i  < 8; i++){
             for(let j = 0; j  < 8; j++){
                 if(this.rows[i][j].color == oppColor && this.includesPosition(this.rows[i][j].moveDirections(), kingPosition )){
@@ -118,16 +120,16 @@ class Board {
         return false
     }
 
-    isValidPosition(pos){
-        let bool = true
-        for(let i = 0; i < pos.length ; i++){
-            // debugger
-            if (pos[i] <  0 ||   pos[i] >  7 ){
-                bool = false;
-            }
+    isOnBoard(pos) {
+        if (pos[0] < 8 && pos[0] >= 0 && pos[1] < 8 && pos[1] >= 0) {
+            return true
         }
-        // debugger
-        return bool && this.rows[pos[0]][pos[1]].color !== this.currentPlayer
+        return false
+    }
+
+    isValidPosition(pos, color){
+        let bool = true
+        return this.isOnBoard(pos) && this.rows[pos[0]][pos[1]].color !== color
     }
 
     promotion(pos, newPiece){
@@ -172,9 +174,6 @@ class Board {
         this.currentPlayer = (this.currentPlayer === "white" ? "black" : "white")
     }
 
-    checkMate(){
-        false
-    }
 }
 
 export default Board;
