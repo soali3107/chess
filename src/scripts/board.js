@@ -29,6 +29,8 @@ class Board {
         this.populateBoard = this.populateBoard.bind(this);
         this.isEmpty = this.isEmpty.bind(this);
         this.movePiece  = this.movePiece.bind(this);
+        this.findKing = this.findKing.bind(this);
+        this.check = this.check.bind(this);
         this.isValidPosition =this.isValidPosition.bind(this);
         this.position = this.position.bind(this);
         this.includesPosition = this.includesPosition.bind(this);
@@ -80,6 +82,7 @@ class Board {
         // console.log(piece.moveDirections());
         // console.log(endPos);
         // console.log(this.includesPosition(piece.moveDirections, endPos));
+        console.log(this.check('black'))
         if (piece.color === this.currentPlayer && (this.includesPosition(piece.moveDirections(), endPos))){
             // console.log("HELOOOOOO");
             this.rows[endPos[0]][endPos[1]] = piece;
@@ -89,6 +92,30 @@ class Board {
             this.rows[endPos[0]][endPos[1]].movePosition(endPos);
             // console.log(this.currentPlayer);
         }
+    }
+
+    findKing(color){
+        const king = (color === 'white' ? `./assets/kw.svg` : `./assets/kb.svg`)
+        for(let i = 0; i < 8; i++){
+            for(let j = 0; j < 8; j++){
+                if (this.rows[i][j].symbol() == king && this.rows[i][j].color == color ){
+                    return [i, j]
+                }
+            }
+        }
+    }
+
+    check(color){
+        const kingPosition = this.findKing(color)
+        const oppColor = color == 'white' ? 'black' : 'white'
+        for(let i = 0; i  < 8; i++){
+            for(let j = 0; j  < 8; j++){
+                if(this.rows[i][j].color == oppColor && this.includesPosition(this.rows[i][j].moveDirections(), kingPosition )){
+                    return true
+                }
+            }
+        }
+        return false
     }
 
     isValidPosition(pos){
@@ -105,7 +132,7 @@ class Board {
 
     promotion(pos, newPiece){
         let oldPiece = this.rows[pos[0]][pos[1]];
-        debugger;
+        // debugger;
         this.rows[pos[0]][pos[1]] = new newPiece (oldPiece.color, this, oldPiece.position);
     }
     //Newmethod

@@ -44,12 +44,12 @@ function setUpBoard(){
                     // console.log(clickCount);
                 }
                 else {
-                    console.log("start");
-                    console.log(clickCount[0]);
-                    console.log(startPos);
+                    // console.log("start");
+                    // console.log(clickCount[0]);
+                    // console.log(startPos);
                     board2.movePiece(clickCount[0], startPos)
                     let currentPiece = board2.rows[startPos[0]][startPos[1]];
-                    console.log(currentPiece instanceof Pawn);
+                    // console.log(currentPiece instanceof Pawn);
                     // debugger;
                     if (currentPiece instanceof Pawn && (startPos[0] === 0 || startPos[0] === 7)){
                         // board2.rows[startPos[0]][startPos[1]]  === new Queen;
