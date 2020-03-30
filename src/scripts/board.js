@@ -31,6 +31,7 @@ class Board {
         this.movePiece  = this.movePiece.bind(this);
         this.findKing = this.findKing.bind(this);
         this.check = this.check.bind(this);
+        this.checkmate = this.checkmate.bind(this);
         this.isValidPosition =this.isValidPosition.bind(this);
         this.position = this.position.bind(this);
         this.includesPosition = this.includesPosition.bind(this);
@@ -92,7 +93,7 @@ class Board {
             this.rows[endPos[0]][endPos[1]].movePosition(endPos);
             // console.log(this.currentPlayer);
         }
-        console.log(this.check('black'))
+        console.log(this.checkmate('black'))
         // debugger
     }
 
@@ -118,6 +119,42 @@ class Board {
             }
         }
         return false
+    }
+    
+    checkmate(inputColor){
+        const kingPosition = this.findKing(inputColor)
+        const oppColor = (inputColor == 'white' ? 'black' : 'white')
+        let bool = false
+        if (this.check(inputColor)){
+            for (let i = 0; i < 8; i++) {
+                for (let j = 0; j < 8; j++) {
+                    if (this.rows[i][j].color == inputColor){
+                        let piece = this.rows[i][j]
+                        let moves = piece.moveDirections()
+                        let k = 0
+                        while (k < moves.length){
+                            let x = moves[k][0]
+                            let y = moves[k][1]
+                            let temp = this.rows[x][y]
+                            this.rows[x][y] = piece
+                            this.rows[i][j] = new NullPiece("null", this, [i, j])
+                            if(!this.check(inputColor)){
+                                this.rows[i][j] = piece
+                                this.rows[x][y] = temp
+                                return false    
+                            }
+                            this.rows[i][j] = piece
+                            this.rows[x][y] = temp
+                            k +=  1
+                        }
+                    }
+                }
+            } 
+        }
+        else{
+            return false
+        }
+        return true
     }
 
     isOnBoard(pos) {
