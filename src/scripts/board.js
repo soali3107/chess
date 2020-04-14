@@ -101,7 +101,7 @@ class Board {
             }
             // debugger
             if (this.checkmate(oppColor)){
-                console.log(oppColor, " is in  checkmate.")
+                console.log(oppColor + " is in  checkmate.")
             }
             else if (this.check(oppColor)){
                 console.log(oppColor, "is in check")
