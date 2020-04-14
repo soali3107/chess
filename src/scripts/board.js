@@ -84,16 +84,30 @@ class Board {
         // console.log(piece.moveDirections());
         // console.log(endPos);
         // console.log(this.includesPosition(piece.moveDirections, endPos));
+        let oppColor = (this.currentPlayer == "white" ? "black" : "white")
         if (piece.color === this.currentPlayer && (this.includesPosition(piece.moveDirections(), endPos))){
             // console.log("HELOOOOOO");
+            let temp = this.rows[endPos[0]][endPos[1]]
             this.rows[endPos[0]][endPos[1]] = piece;
             this.rows[startPos[0]][startPos[1]] = new NullPiece("null", this, startPos); 
-            this.changeCurrentPlayer();
             // this.piece.movePosition(endPos);
             this.rows[endPos[0]][endPos[1]].movePosition(endPos);
-            // console.log(this.currentPlayer);
+            // debugger
+            if (this.check(this.currentPlayer)){
+                // debugger
+                this.rows[startPos[0]][startPos[1]] =  piece
+                this.rows[endPos[0]][endPos[1]] = temp
+                this.changeCurrentPlayer();
+            }
+            // debugger
+            if (this.checkmate(oppColor)){
+                console.log(oppColor, " is in  checkmate.")
+            }
+            else if (this.check(oppColor)){
+                console.log(oppColor, "is in check")
+            }
+            this.changeCurrentPlayer();
         }
-        console.log(this.checkmate('black'))
         // debugger
     }
 

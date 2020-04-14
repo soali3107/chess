@@ -7,7 +7,6 @@ import Pawn from './scripts/piece/pawn';
 // this.game = new Game;
 document.addEventListener("DOMContentLoaded", setUpBoard);
 let board2 = new Board;
-
 let clickCount = [];
 function setUpBoard(){
     // debugger
@@ -17,58 +16,34 @@ function setUpBoard(){
         for(let j = 0; j < 8; j++){
             //create  tile element for 
             let img = document.createElement("img");   
-            // Create a <img> element
-            // img.innerHTML = "CLICK ME";
+
             img.className = ((i + j) % 2 === 0 ? "black" : "white" );
             img.id = `${i}${j}`;
-            // img.src = game.board.pos([i,j]);
-            // if ( i < 2 )
-            // if (i === 0) {
-            //     img.src = '../assets/bb.svg';
             img.src = board2.rows[i][j].symbol();
-            // } else if (i > 6) {
-            //     switch (j) {
-            //         case j % 5 === 0:
-            //     }
-            // }
-            // div.img.src = './assets/bb.svg';
-            // img.onclick = "";
-            // debugger
             chessBoard.appendChild(img);
             img.onclick = function (e) {
                 e.preventDefault;
                 const startPos = [i, j];
                 if (clickCount.length === 0){
                     clickCount.push(startPos);
-                    // console.log('click1');
-                    // console.log(clickCount);
                 }
                 else {
-                    // console.log("start");
-                    // console.log(clickCount[0]);
-                    // console.log(startPos);
                     board2.movePiece(clickCount[0], startPos)
                     let currentPiece = board2.rows[startPos[0]][startPos[1]];
-                    // console.log(currentPiece instanceof Pawn);
-                    // debugger;
                     if (currentPiece instanceof Pawn && (startPos[0] === 0 || startPos[0] === 7)){
-                        // board2.rows[startPos[0]][startPos[1]]  === new Queen;
                         currentPiece = board2.promotion(startPos, Queen);
                     }
                     clickCount = [];
-                    // console.log('click2')
-                    // console.log(clickCount);
-                    // chessBoard.remove();
                     chessBoard.innerHTML = "";
                     setUpBoard();
                 }
             }
                
         }
-        ///<div><img onClick>
     };
+    
+    
 };
-
 
 
 
