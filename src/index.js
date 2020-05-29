@@ -7,7 +7,7 @@ import Pawn from './scripts/piece/pawn';
 // this.game = new Game;
 document.querySelector('.reset').addEventListener('click', () =>{
     board2 = new Board;
-    let clickCount = [];
+    clickCount = [];
     document.getElementsByClassName("chess")[0].innerHTML = "";
     updateBoard();
 });
@@ -35,8 +35,12 @@ function updateBoard(){
             img.onclick = function (e) {
                 e.preventDefault;
                 const startPos = [i, j];
-                if (clickCount.length === 0){
+                if (clickCount.length === 0 && board2.rows[startPos[0]][startPos[1]].color === board2.currentPlayer){
                     clickCount.push(startPos);
+                    console.log('being pushed');
+                }
+                else if (clickCount.length === 0){
+                    console.log('wrong color');
                 }
                 else {
                     board2.movePiece(clickCount[0], startPos)
@@ -56,6 +60,11 @@ function updateBoard(){
     
 };
 
+function updateMessages(){
+    if (board2.checkmate){
+        document.querySelector('.check').textContent= `${board.currentPlayer()} is in `;
+    }
+}
 
 
 // import Board from './scripts/board';

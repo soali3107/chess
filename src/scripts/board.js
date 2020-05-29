@@ -37,6 +37,7 @@ class Board {
         this.includesPosition = this.includesPosition.bind(this);
         this.changeCurrentPlayer = this.changeCurrentPlayer.bind(this);
         this.promotion = this.promotion.bind(this);
+        // this.invalidFirstPiece = this.invalidFirstPiece.bind(this);
         this.populateBoard();
     }
 
@@ -84,6 +85,7 @@ class Board {
         // console.log(piece.moveDirections());
         // console.log(endPos);
         // console.log(this.includesPosition(piece.moveDirections, endPos));
+        // console.log(piece instanceof King);
         let oppColor = (this.currentPlayer == "white" ? "black" : "white")
         if (piece.color === this.currentPlayer && (this.includesPosition(piece.moveDirections(), endPos))){
             // console.log("HELOOOOOO");
@@ -92,10 +94,14 @@ class Board {
             this.rows[startPos[0]][startPos[1]] = new NullPiece("null", this, startPos); 
             // this.piece.movePosition(endPos);
             this.rows[endPos[0]][endPos[1]].movePosition(endPos);
+            // if (piece instanceof King){debugger;}
             // debugger
+            console.log('startPos', this.rows[startPos[0]][startPos[1]].position);
+            console.log('endPos', this.rows[endPos[0]][endPos[1]].position);
             if (this.check(this.currentPlayer)){
-                // debugger
+                debugger
                 this.rows[startPos[0]][startPos[1]] =  piece
+                this.rows[startPos[0]][startPos[1]].movePosition(startPos);
                 this.rows[endPos[0]][endPos[1]] = temp
                 this.changeCurrentPlayer();
             }
@@ -121,10 +127,10 @@ class Board {
             }
         }
     }
-
+    // Returns true if inputColor is in check.
     check(inputColor){
-        const kingPosition = this.findKing(inputColor)
-        const oppColor = (inputColor == 'white' ? 'black' : 'white')
+        const kingPosition = this.findKing(inputColor);
+        const oppColor = (inputColor == 'white' ? 'black' : 'white');
         for(let i = 0; i  < 8; i++){
             for(let j = 0; j  < 8; j++){
                 if(this.rows[i][j].color == oppColor && this.includesPosition(this.rows[i][j].moveDirections(), kingPosition )){
@@ -134,7 +140,7 @@ class Board {
         }
         return false
     }
-    
+    // Returns true if input color is in checkmate.
     checkmate(inputColor){
         const kingPosition = this.findKing(inputColor)
         const oppColor = (inputColor == 'white' ? 'black' : 'white')
@@ -143,15 +149,21 @@ class Board {
             for (let i = 0; i < 8; i++) {
                 for (let j = 0; j < 8; j++) {
                     if (this.rows[i][j].color == inputColor){
-                        let piece = this.rows[i][j]
-                        let moves = piece.moveDirections()
-                        let k = 0
+                        // if (i === kingPosition[0] && j === kingPosition[1]){
+                        //     continue;
+                        // }
+                        let piece = this.rows[i][j];
+                        let moves = piece.moveDirections();
+                        let k = 0;
                         while (k < moves.length){
-                            let x = moves[k][0]
-                            let y = moves[k][1]
-                            let temp = this.rows[x][y]
-                            this.rows[x][y] = piece
-                            this.rows[i][j] = new NullPiece("null", this, [i, j])
+                            let x = moves[k][0];
+                            let y = moves[k][1];
+                            let temp = this.rows[x][y];
+                            // console.log(temp.constructor )
+                            this.rows[x][y] = piece;
+                            // continue if new position is king maybe error
+                            this.rows[i][j] = new NullPiece("null", this, [i, j]);
+                            // debugger;
                             if(!this.check(inputColor)){
                                 this.rows[i][j] = piece
                                 this.rows[x][y] = temp
