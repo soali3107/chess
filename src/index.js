@@ -5,11 +5,22 @@ import Board from './scripts/board';
 import Queen from './scripts/piece/Queen';
 import Pawn from './scripts/piece/pawn';
 // this.game = new Game;
-document.addEventListener("DOMContentLoaded", setUpBoard);
-let board2 = new Board;
+document.querySelector('.reset').addEventListener('click', () =>{
+    board2 = new Board;
+    let clickCount = [];
+    document.getElementsByClassName("chess")[0].innerHTML = "";
+    updateBoard();
+});
+document.addEventListener("DOMContentLoaded", () =>{
+    updateBoard();
+});
+
 let clickCount = [];
-function setUpBoard(){
+let board2 = new Board();
+function updateBoard(){
     // debugger
+    // document.getElementsByClassName("chess").innerHTML = "";
+    console.log(document.getElementsByClassName("chess"));
     let chessBoard = document.getElementsByClassName("chess")[0];
     // debugger
     for(let i = 0; i < 8; i++){
@@ -35,7 +46,7 @@ function setUpBoard(){
                     }
                     clickCount = [];
                     chessBoard.innerHTML = "";
-                    setUpBoard();
+                    updateBoard();
                 }
             }
                
