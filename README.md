@@ -30,7 +30,7 @@ Chess is an 8 x 8 board game that consists of 16 pieces on both sides. It's a fu
 
 ### Day 5
 
-* Allow player to choose the color. okcupi
+* Allow player to choose the color.
 
 
 
