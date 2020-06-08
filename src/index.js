@@ -8,7 +8,7 @@ import Pawn from './scripts/piece/pawn';
 
 document.addEventListener("DOMContentLoaded", () =>{
     updateBoard();
-    // reset();
+    reset();
 });
 
 let clickCount = [];
@@ -71,7 +71,12 @@ function reset(){
 function updateMessages(){
     let isCheck = document.getElementsByClassName("check")[0]; 
     let turn = document.getElementsByClassName("turn")[0];
-    turn.textContent = board2.currentPlayer[0].toUpperCase() + board2.currentPlayer.slice(1) + "'s Turn"
+    turn.textContent = board2.currentPlayer[0].toUpperCase() + board2.currentPlayer.slice(1) + "'s Turn";
+    console.log(board2.checkmate('white'));
+    console.log(board2.checkmate('black'));
+    console.log('----------');
+    // debugger;
+    console.log(board2);
     if (board2.checkmate('white')){
         isCheck.textContent = `White is in checkmate!`;
         turn.textContent = '';

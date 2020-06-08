@@ -1,5 +1,5 @@
 html  {
-    background-color: #03A9F4;
+    background-color: #B3E5FC;
     font-family: 'Lato', sans-serif;
 }
 
@@ -9,25 +9,18 @@ html  {
     margin-top: 10px;
     margin-bottom: 5px;
     font-size: 18px;
-    color: #212121;
+    display: inline-block;
+    width: 100%;
     text-align: center;
-    width: 100%;
+    text-decoration: none;
 
-}
-
-.body {
-    width: 100%;
-    background-color: #B3E5FC;
-}
-.message {
-    font-size: 15px;
 }
 
 .site {
-    color: black;
-    float: left;
     margin-right: 10px;
     margin-left: 5px;
+    color: #212121;
+
 }
 
 .logo {
@@ -35,22 +28,43 @@ html  {
     width: auto;
     color: white;
 }
-.chess {
-    width: 480px;
-    height: 480px;
-    margin: 20px;
-    border: 10px solid #333;
-    /* color: #FFFF00;  
-    opacity: .5; */
+
+.body {
+    color: #212121;
+    width: 100%;
+    background-color: #B3E5FC;
 }
 
 .main, .side {
     float: left;
-    width: 50%;
+    width: 48%;
+    margin-top: 20px;
 }
 
-.site {
-    width: 50%;
+.main {
+    text-align: center;
+}
+
+.side {
+    margin-right: 10px; 
+}
+
+h2 {
+    margin-top: 0px;
+    margin-bottom: 1px;
+}
+
+.message {
+    font-size: 15px;
+}
+
+.chess {
+    width: 480px;
+    height: 480px;
+    margin: auto;
+    border: 10px solid #333;
+    /* color: #FFFF00;  
+    opacity: .5; */
 }
 
 .black {
