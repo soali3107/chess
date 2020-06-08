@@ -96,8 +96,8 @@ class Board {
             this.rows[endPos[0]][endPos[1]].movePosition(endPos);
             // if (piece instanceof King){debugger;}
             // debugger
-            console.log('startPos', this.rows[startPos[0]][startPos[1]].position);
-            console.log('endPos', this.rows[endPos[0]][endPos[1]].position);
+            // console.log('startPos', this.rows[startPos[0]][startPos[1]].position);
+            // console.log('endPos', this.rows[endPos[0]][endPos[1]].position);
             if (this.check(this.currentPlayer)){
                 debugger
                 this.rows[startPos[0]][startPos[1]] =  piece
@@ -107,10 +107,10 @@ class Board {
             }
             // debugger
             if (this.checkmate(oppColor)){
-                console.log(oppColor + " is in  checkmate.")
+                // console.log(oppColor + " is in  checkmate.")
             }
             else if (this.check(oppColor)){
-                console.log(oppColor, "is in check")
+                // console.log(oppColor, "is in check")
             }
             this.changeCurrentPlayer();
         }

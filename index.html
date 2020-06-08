@@ -10,26 +10,51 @@
 </head>
 <body>
     <div class='links'>
-        <a href="./assets/Sohail_Ali_Resume.pdf" target="_blank" class="button">Resume</a>
-        <a href="https://soali3107.github.io" target="_blank">Personal Site</a>
-        <a href="https://github.com/soali3107" target="_blank">Github</a>
-        <a href="https://www.linkedin.com/in/soali3107/" target="_blank">LinkedIn</a>
+        <a class="resume site" href="https://soali3107.github.io/images/Sohail_Ali_Resume.pdf" target="_blank" class="button">Resume</a>
+        <a class="personal site" href="https://soali3107.github.io" target="_blank">Personal Site</a>
+        <a class="github site" href="https://github.com/soali3107" target="_blank">
+            <!-- <ion-icon name="logo-github"></ion-icon> -->
+            <img class="logo" src="logo-github.svg"></img>
+            Github
+        </a>
+        <a class="linkedin site" href="https://www.linkedin.com/in/soali3107/" target="_blank">LinkedIn</a>
     </div>
+    <br>
 
-    <h2 class='title'>Chess</h2>
-    <a href="rules.html">
-        <p> Rules </p>
-    </a>
-    <button class='reset'>Reset
-        <!-- <script src="./dist/main.js"></script> -->
-    </button>
-    <div class="chess">
-        <script src="./dist/main.js"></script>
-    </div>
-    <div id="messages">
-        <div class='turn'></div>
-        <div class='valid'></div>
-        <div class='check'></div>
+    <div class="body">
+        <div class="main">
+            <h2 class='title'>Chess</h2>
+            <div class="messages">
+                <div class='turn'></div>
+                <div class='valid'>Pick white piece to move</div>
+                <div class='check'></div>
+            </div>
+            
+            <p class="turn"></p> <br>
+            <div class="chess">
+                <script src="./dist/main.js"></script>
+            </div>
+            <button class='reset'>Reset</button>
+            <!-- <script src="./dist/main.js"></script> -->
+        </div>
+
+        <div class="side">
+            <h2 class='title'>Rules</h2>
+                <div class="rules">
+                    <p> This game follows the rule of Chess with the following exceptions: </p>
+                    <ul>
+                        <li> Pawns cannot execute <em> en passant</em>.</li>
+                        <li> Pawns are promoted to queen.</li>
+                        <li> Castling is not available. </li>
+                    </ul>
+                    <p> 
+                        In order to play this game, follow the instructions on the top of this board.
+                        The player's turn is the turn listed above. 
+                        In order to select a piece, click on the piece you want to move. Then move it into 
+                        a valid position. 
+                    </p>
+                </div>
+        </div>
     </div>
 </body>
 </html>

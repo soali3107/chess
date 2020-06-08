@@ -1,24 +1,56 @@
+.links {
+    box-sizing: border-box;
+    height: 22px;
+    margin-top: 10px;
+    margin-bottom: 5 px;
+    font-size: 18px;
+    background-color: skyblue;
+
+}
+
+.message {
+    font-size: 15px;
+}
+
+.site {
+    color: black;
+    float: left;
+    margin-right: 10px;
+    margin-left: 5px;
+}
+
+.logo {
+    height: 16px;
+    width: auto;
+    color: white;
+}
 .chess {
-    width: 640px;
-    height: 640px;
+    width: 480px;
+    height: 480px;
     margin: 20px;
     border: 10px solid #333;
+    /* color: #FFFF00;  
+    opacity: .5; */
 }
+
 .black {
     float: left;
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     background-color: #999;
-      font-size:50px;
+    font-size:50px;
     text-align:center;
     display: table-cell;
     vertical-align:middle;
+    /* background:linear-gradient( yellow 90%); 
+    background-blend-mode: overlay; */ 
 }
+
 .white {
     float: left;
-    width: 80px;
-    height: 80px;
-    background-color: #fff;
+    width: 60px;
+    height: 60px;
+    background-color: white;
     font-size:50px;
     text-align:center;
     display: table-cell;
