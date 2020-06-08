@@ -1,13 +1,24 @@
+html  {
+    background-color: #03A9F4;
+    font-family: 'Lato', sans-serif;
+}
+
 .links {
     box-sizing: border-box;
     height: 22px;
     margin-top: 10px;
-    margin-bottom: 5 px;
+    margin-bottom: 5px;
     font-size: 18px;
-    background-color: skyblue;
+    color: #212121;
+    text-align: center;
+    width: 100%;
 
 }
 
+.body {
+    width: 100%;
+    background-color: #B3E5FC;
+}
 .message {
     font-size: 15px;
 }
@@ -33,11 +44,20 @@
     opacity: .5; */
 }
 
+.main, .side {
+    float: left;
+    width: 50%;
+}
+
+.site {
+    width: 50%;
+}
+
 .black {
     float: left;
     width: 60px;
     height: 60px;
-    background-color: #999;
+    background-color: #bdbdbd;
     font-size:50px;
     text-align:center;
     display: table-cell;
@@ -50,9 +70,15 @@
     float: left;
     width: 60px;
     height: 60px;
-    background-color: white;
+    background-color: #ffffff;
     font-size:50px;
     text-align:center;
     display: table-cell;
     vertical-align:middle;
+}
+
+.reset {
+    border-radius: 15%;
+    color: #212121;
+    background-color: #FFFFFF;
 }
