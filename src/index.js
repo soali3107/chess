@@ -8,7 +8,7 @@ import Pawn from './scripts/piece/pawn';
 
 document.addEventListener("DOMContentLoaded", () =>{
     updateBoard();
-    reset();
+    // reset();
 });
 
 let clickCount = [];
